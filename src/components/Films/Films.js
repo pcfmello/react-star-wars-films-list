@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Modal from "../../common/Modal/Modal";
+import ModalFilm from "../ModalFilm/ModalFilm";
 import axios from "axios";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -23,6 +23,7 @@ const styles = theme => ({
 });
 
 const Films = () => {
+  const [film, setFilm] = useState({});
   const [films, setFilms] = useState([]);
   const [isOpenModal, setOpenModal] = useState(false);
 
@@ -39,17 +40,19 @@ const Films = () => {
     }
   };
 
-  const openModal = () => setOpenModal(true);
-  const closeModal = () => setOpenModal(false);
-
-  const film = {
-    title: "A Lagoa Azul"
+  const openModal = film => {
+    setFilm(film);
+    setOpenModal(true);
+  };
+  const closeModal = () => {
+    setFilm({});
+    setOpenModal(false);
   };
 
   return (
     <div>
       <List items={films} {...{ openModal }} />
-      <Modal {...{ isOpenModal, closeModal, film }}>Oie da modal</Modal>
+      {isOpenModal && <ModalFilm {...{ film }} open={isOpenModal} handleClose={closeModal} />}
     </div>
   );
 };

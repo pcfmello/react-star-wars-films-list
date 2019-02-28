@@ -56,9 +56,7 @@ const List = ({ openModal, items, classes }) => {
       <div className={cn(classes.flex, classes.titleCell)}>TITULO</div>
       <div className={cn(classes.flex, classes.episodeCell)}>EPISÓDIO</div>
       <div className={cn(classes.flex, classes.directorCell)}>DIRETOR</div>
-      <div className={cn(classes.flex, classes.releaseDateCell)}>
-        LANÇADO EM
-      </div>
+      <div className={cn(classes.flex, classes.releaseDateCell)}>LANÇADO EM</div>
     </div>
   );
 
@@ -68,21 +66,13 @@ const List = ({ openModal, items, classes }) => {
       className={cn(classes.flex, classes.tableRow, classes.tableRowHover)}
     >
       <div className={cn(classes.flex, classes.titleCell)}>{item.title}</div>
-      <div className={cn(classes.flex, classes.episodeCell)}>
-        {item.episode_id}
-      </div>
-      <div className={cn(classes.flex, classes.directorCell)}>
-        {item.director}
-      </div>
+      <div className={cn(classes.flex, classes.episodeCell)}>{item.episode_id}</div>
+      <div className={cn(classes.flex, classes.directorCell)}>{item.director}</div>
       <div className={cn(classes.flex, classes.releaseDateCell)}>
         {moment(item.release_date).format("L")}
       </div>
       <div className={cn(classes.flex, classes.actionButtons)}>
-        <IconButton
-          className={classes.button}
-          aria-label="Delete"
-          onClick={openModal}
-        >
+        <IconButton className={classes.button} aria-label="Delete" onClick={() => openModal(item)}>
           <DeleteIcon />
         </IconButton>
       </div>
@@ -92,11 +82,7 @@ const List = ({ openModal, items, classes }) => {
   return (
     <div className={cn(classes.root)}>
       <div>{headerRow()}</div>
-      <div>
-        {(items.length && items.map(item => bodyRow(item))) || (
-          <Loading size={100} />
-        )}
-      </div>
+      <div>{(items.length && items.map(item => bodyRow(item))) || <Loading size={100} />}</div>
     </div>
   );
 };
