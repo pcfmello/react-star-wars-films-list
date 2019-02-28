@@ -1,19 +1,19 @@
 # REACT STAR WARS FILMS LIST
-Um site contendo a lista de filmes da série Star Wars e os dados de cada um deles como Diretores, Produtores, Data de Lançamento etc entre outras.
+It's a site containing the Star Wars film list and the data of each one as Directors, Producers, Episode numbers, Release date and others.
 
-Foi desenvolvido utilizando:
+It has been developed usinig:
 * ES6+
-* React
+* React 16.8 using Hooks
 * MomentJS
 * Material-UI
 
-## Rodando o projeto localmente
-Instale as dependncias:
+## Running project locally
+Install dependencies:
 
 `$ yarn install`
 
-Inicie o projeto:
+Start the server:
 
 `$ yarn start`
 
-Abra o link [http://localhost:3000](http://localhost:3000) para visualizar no browser.
+Open [localhost:3000](http://localhost:3000) to access it.
