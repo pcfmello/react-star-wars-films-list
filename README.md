@@ -23,6 +23,6 @@ There is a style guide with common components used in this site.
 
 Start the server
 
-`$yarn styleguide`
+`$ yarn styleguide`
 
 Access [localhost:6060](http://localhost:6060) to view.
