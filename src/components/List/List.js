@@ -4,8 +4,6 @@ import cn from "classnames";
 import moment from "moment";
 
 import Loading from "../../common/Loading/Loading";
-import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
@@ -26,15 +24,14 @@ const styles = {
     borderBottom: "1px solid black"
   },
   tableRowHover: {
+    cursor: "pointer",
     "&:hover": {
       color: "black",
       backgroundColor: "gray"
+    },
+    "&:active": {
+      backgroundColor: "rgba(128, 128, 128, 0.5)"
     }
-  },
-  actionButtons: {
-    position: "absolute",
-    padding: "0 24px",
-    right: 0
   },
   titleCell: {
     width: "30%"
@@ -53,10 +50,10 @@ const styles = {
 const List = ({ openModal, items, classes }) => {
   const headerRow = () => (
     <div className={cn(classes.flex, classes.tableRow, classes.tableRowHeader)}>
-      <div className={cn(classes.flex, classes.titleCell)}>TITULO</div>
-      <div className={cn(classes.flex, classes.episodeCell)}>EPISÓDIO</div>
-      <div className={cn(classes.flex, classes.directorCell)}>DIRETOR</div>
-      <div className={cn(classes.flex, classes.releaseDateCell)}>LANÇADO EM</div>
+      <div className={cn(classes.flex, classes.titleCell)}>TITLE</div>
+      <div className={cn(classes.flex, classes.episodeCell)}>EPISODE</div>
+      <div className={cn(classes.flex, classes.directorCell)}>DIRECTOR</div>
+      <div className={cn(classes.flex, classes.releaseDateCell)}>RELEASE</div>
     </div>
   );
 
@@ -64,17 +61,13 @@ const List = ({ openModal, items, classes }) => {
     <div
       key={item.episode_id}
       className={cn(classes.flex, classes.tableRow, classes.tableRowHover)}
+      onClick={() => openModal(item)}
     >
       <div className={cn(classes.flex, classes.titleCell)}>{item.title}</div>
       <div className={cn(classes.flex, classes.episodeCell)}>{item.episode_id}</div>
       <div className={cn(classes.flex, classes.directorCell)}>{item.director}</div>
       <div className={cn(classes.flex, classes.releaseDateCell)}>
         {moment(item.release_date).format("L")}
-      </div>
-      <div className={cn(classes.flex, classes.actionButtons)}>
-        <IconButton className={classes.button} aria-label="Delete" onClick={() => openModal(item)}>
-          <DeleteIcon />
-        </IconButton>
       </div>
     </div>
   );

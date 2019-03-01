@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
-  flex: props => ({
+  flex: ({ ...props }) => ({
     display: "flex",
     flexDirection: props.direction,
     flexWrap: props.wrap,
@@ -25,7 +25,7 @@ const defaultAlign = ["flex-start", "flex-end", "center"];
 const defaultAlignTwo = [...defaultAlign, "stretch"];
 const defaultAlignThree = [...defaultAlignTwo, "baseline"];
 
-const Flex = ({ children, classes }) => (
+const Flex = ({ children, classes, ...props }) => (
   <div className={classes.flex}>{children}</div>
 );
 
