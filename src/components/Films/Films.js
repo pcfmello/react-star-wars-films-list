@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ModalFilm from "../ModalFilm/ModalFilm";
-import axios from "axios";
+import FilmService from "../../services/FilmsService";
 import { withStyles } from "@material-ui/core/styles";
 
 import List from "../List/List";
@@ -33,7 +33,7 @@ const Films = () => {
 
   const getFilms = async () => {
     try {
-      const resp = await axios.get("https://swapi.co/api/films");
+      const resp = await FilmService.getAllFilms();
       setFilms(resp.data.results);
     } catch {
       console.log("Erro ao buscar filmes");
