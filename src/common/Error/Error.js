@@ -24,8 +24,11 @@ const Error = ({ iconName, message, classes }) => (
 );
 
 Error.propTypes = {
+  /** Icon name that will showed. Names list is in: https://material.io/tools/icons */
   iconName: PropTypes.string,
+  /** Message that will showed */
   message: PropTypes.string.isRequired,
+  /** @ignore */
   classes: PropTypes.object
 };
 
