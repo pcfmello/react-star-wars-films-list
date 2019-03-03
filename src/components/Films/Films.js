@@ -4,6 +4,7 @@ import FilmService from "../../services/FilmsService";
 import { withStyles } from "@material-ui/core/styles";
 
 import List from "../List/List";
+import ErrorPage from "../../common/Error/Error";
 
 const styles = theme => ({
   root: {
@@ -25,6 +26,7 @@ const styles = theme => ({
 const Films = () => {
   const [film, setFilm] = useState({});
   const [films, setFilms] = useState([]);
+  const [isError, setError] = useState(false);
   const [isOpenModal, setOpenModal] = useState(false);
 
   useEffect(() => {
@@ -32,11 +34,12 @@ const Films = () => {
   }, []);
 
   const getFilms = async () => {
+    setError(false);
     try {
       const resp = await FilmService.getAllFilms();
       setFilms(resp.data.results);
     } catch {
-      console.log("Erro ao buscar filmes");
+      setError(true);
     }
   };
 
@@ -51,7 +54,7 @@ const Films = () => {
 
   return (
     <div>
-      <List items={films} {...{ openModal }} />
+      <List items={films} {...{ openModal, isError }} />
       {isOpenModal && <ModalFilm {...{ film }} open={isOpenModal} handleClose={closeModal} />}
     </div>
   );

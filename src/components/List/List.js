@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 import moment from "moment";
+import { ErrorOutline } from "@material-ui/icons";
+import { withStyles } from "@material-ui/core/styles";
 
 import Loading from "../../common/Loading/Loading";
-import { withStyles } from "@material-ui/core/styles";
+import ErrorPage from "../../common/Error/Error";
 
 const styles = {
   tableRow: {
@@ -47,7 +49,7 @@ const styles = {
   }
 };
 
-const List = ({ openModal, items, classes }) => {
+const List = ({ openModal, items, isError, classes }) => {
   const headerRow = () => (
     <div className={cn(classes.flex, classes.tableRow, classes.tableRowHeader)}>
       <div className={cn(classes.flex, classes.titleCell)}>TITLE</div>
@@ -75,7 +77,12 @@ const List = ({ openModal, items, classes }) => {
   return (
     <div className={cn(classes.root)}>
       <div>{headerRow()}</div>
-      <div>{(items.length && items.map(item => bodyRow(item))) || <Loading size={100} />}</div>
+      <div>
+        {isError && (
+          <ErrorPage Icon={ErrorOutline} message="There was an error to loading films list" />
+        )}
+        {(!isError && (items.length && items.map(item => bodyRow(item)))) || <Loading size={100} />}
+      </div>
     </div>
   );
 };
@@ -83,6 +90,7 @@ const List = ({ openModal, items, classes }) => {
 List.propTypes = {
   openModal: PropTypes.func.isRequired,
   items: PropTypes.array.isRequired,
+  isError: PropTypes.bool.isRequired,
   classes: PropTypes.object.isRequired
 };
 
