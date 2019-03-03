@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { SvgIcon } from "@material-ui/core";
+import { Icon } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
@@ -12,22 +12,19 @@ const styles = {
     alignItems: "center"
   },
   icon: {
-    width: 150,
-    height: 150
+    fontSize: 150
   }
 };
 
-const Error = ({ Icon, message, classes }) => (
+const Error = ({ iconName, message, classes }) => (
   <div className={classes.root}>
-    <SvgIcon className={classes.icon}>
-      <Icon />
-    </SvgIcon>
+    <Icon className={classes.icon}>{iconName}</Icon>
     <h2>{message}</h2>
   </div>
 );
 
 Error.propTypes = {
-  Icon: PropTypes.node.isRequired,
+  iconName: PropTypes.string,
   message: PropTypes.string.isRequired,
   classes: PropTypes.object
 };

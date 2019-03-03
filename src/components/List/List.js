@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 import moment from "moment";
-import { ErrorOutline } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
 
 import Loading from "../../common/Loading/Loading";
@@ -79,7 +78,7 @@ const List = ({ openModal, items, isError, classes }) => {
       <div>{headerRow()}</div>
       <div>
         {isError && (
-          <ErrorPage Icon={ErrorOutline} message="There was an error to loading films list" />
+          <ErrorPage iconName="error_outline" message="There was an error to loading films list" />
         )}
         {(!isError && (items.length && items.map(item => bodyRow(item)))) || <Loading size={100} />}
       </div>
