@@ -1,23 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 
 import ModalFullScreen from "../../common/Modal/ModalFullScreen";
+import ModalContent from "./ModalFilmContent";
 
-const styles = {
-  root: {
-    color: "gray"
-  }
-};
-
-const ModalFilm = ({ open, handleClose, film, classes }) => {
+const ModalFilm = ({ open, handleClose, film }) => {
   return (
     <ModalFullScreen
       title={`Episode ${film.episode_id} | ${film.title}`}
       {...{ open, handleClose }}
     >
-      {/* Here must be used grid system to build the view  */}
-      <h1 className={classes.root}> {film.title}</h1>
+      <ModalContent {...{ film }} />
     </ModalFullScreen>
   );
 };
@@ -25,8 +18,7 @@ const ModalFilm = ({ open, handleClose, film, classes }) => {
 ModalFilm.propTypes = {
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
-  film: PropTypes.object.isRequired,
-  classes: PropTypes.object
+  film: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ModalFilm);
+export default ModalFilm;
