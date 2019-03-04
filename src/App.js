@@ -5,13 +5,14 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import { withStyles } from "@material-ui/core/styles";
 
-const styles = {
+const styles = theme => ({
   root: {
     backgroundColor: "black",
-    height: "100vh"
+    [theme.breakpoints.up("sm")]: {
+      height: "100vh"
+    }
   }
-};
-
+});
 class App extends Component {
   render() {
     return (
