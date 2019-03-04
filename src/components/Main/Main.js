@@ -6,10 +6,8 @@ import List from "../Films/Films";
 
 const styles = theme => ({
   root: {
-    width: "95%",
-    height: "calc(100vh - 324px)",
     margin: "0 auto",
-    paddingTop: 24
+    padding: 24
   },
   list: {
     border: "1px solid gray"
