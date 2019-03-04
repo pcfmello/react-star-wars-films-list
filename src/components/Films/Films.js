@@ -4,7 +4,6 @@ import FilmService from "../../services/FilmsService";
 import { withStyles } from "@material-ui/core/styles";
 
 import List from "../List/List";
-import ErrorPage from "../../common/Error/Error";
 
 const styles = theme => ({
   root: {
