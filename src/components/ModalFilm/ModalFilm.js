@@ -6,10 +6,7 @@ import ModalContent from "./ModalFilmContent";
 
 const ModalFilm = ({ open, handleClose, film }) => {
   return (
-    <ModalFullScreen
-      title={`Episode ${film.episode_id} | ${film.title}`}
-      {...{ open, handleClose }}
-    >
+    <ModalFullScreen title="Description" {...{ open, handleClose }}>
       <ModalContent {...{ film }} />
     </ModalFullScreen>
   );
