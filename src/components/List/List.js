@@ -60,7 +60,7 @@ const List = ({ openModal, items, isError, classes }) => {
 
   const bodyRow = item => (
     <div
-      key={item.episode_id}
+      key={item.url}
       className={cn(classes.flex, classes.tableRow, classes.tableRowHover)}
       onClick={() => openModal(item)}
     >
