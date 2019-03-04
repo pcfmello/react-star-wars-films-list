@@ -2,6 +2,7 @@
   "name": "react-star-wars-movie-list",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pcfmello.github.io/react-star-wars-movie-list",
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
@@ -9,6 +10,7 @@
     "classnames": "^2.2.6",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-react": "^7.12.4",
+    "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
@@ -23,7 +25,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",
