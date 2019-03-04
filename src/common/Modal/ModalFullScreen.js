@@ -36,14 +36,12 @@ const ModalFullScreen = ({ open, handleClose, title, children, classes }) => {
     <Dialog
       fullScreen
       open={open}
-      onClose={handleClose}
       TransitionComponent={transition}
       classes={{ paper: classes.paper }}
     >
       <AppBar className={classes.appBar}>
         <Toolbar className={classes.toolbarRoot}>
           <div className={classes.toolbarDescription}>{title}</div>
-
           <IconButton color="inherit" onClick={handleClose} aria-label="Close">
             <CloseIcon />
           </IconButton>
