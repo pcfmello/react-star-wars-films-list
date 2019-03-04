@@ -1,5 +1,8 @@
 import axios from "axios";
 
-export default axios.create({
-  baseURL: `https://swapi.co/api/`
-});
+const instance = axios.create();
+
+// instance.defaults.baseURL = `https://swapi.co/api/`;
+instance.defaults.timeout = 10000;
+
+export default instance;
