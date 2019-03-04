@@ -1,15 +1,21 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "typeface-roboto";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = {
+  root: {
+    backgroundColor: "black",
+    height: "100vh"
+  }
+};
 
 class App extends Component {
   render() {
     return (
-      <div
-        className="App"
-        style={{ backgroundColor: "black", height: "100vh", overflow: "scroll" }}
-      >
+      <div className={this.props.classes.root}>
         <Header />
         <Main />
       </div>
@@ -17,4 +23,8 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  classes: PropTypes.object
+};
+
+export default withStyles(styles)(App);

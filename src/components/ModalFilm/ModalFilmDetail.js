@@ -1,23 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet from "react-jss";
+import { withStyles } from "@material-ui/core/styles";
 
-const styles = {
+const styles = theme => ({
   root: {
-    fontSize: 24,
     paddingBottom: 16,
     textAlign: "justify",
-    "& .label": {
-      fontWeight: "bold",
-      textTransform: "uppercase",
-      paddingBottom: 8
+    [theme.breakpoints.up("sm")]: {
+      fontSize: 24
     }
+  },
+  label: {
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    paddingBottom: 8
   }
-};
+});
 
 const FilmDetail = ({ label, description, classes }) => (
   <div className={classes.root}>
-    <div className="label">{label}</div>
+    <div className={classes.label}>{label}</div>
     <div>{description}</div>
   </div>
 );
@@ -28,4 +30,4 @@ FilmDetail.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default injectSheet(styles)(FilmDetail);
+export default withStyles(styles)(FilmDetail);

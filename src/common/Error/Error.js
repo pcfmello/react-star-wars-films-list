@@ -9,17 +9,19 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    textAlign: "center",
+    padding: 24
   },
   icon: {
-    fontSize: 150
+    fontSize: 50
   }
 };
 
 const Error = ({ iconName, message, classes }) => (
   <div className={classes.root}>
     <Icon className={classes.icon}>{iconName}</Icon>
-    <h2>{message}</h2>
+    <p>{message}</p>
   </div>
 );
 
