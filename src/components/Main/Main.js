@@ -8,7 +8,8 @@ const styles = theme => ({
   root: {
     maxWidth: 1366,
     margin: "0 auto",
-    padding: "8px"
+    [theme.breakpoints.up("sm")]: { padding: "24px" },
+    [theme.breakpoints.down("xs")]: { padding: "8px" }
   },
   films: {
     [theme.breakpoints.up("sm")]: { border: `1px solid ${theme.palette.application.primary}` },

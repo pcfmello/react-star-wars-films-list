@@ -25,7 +25,11 @@ const styles = theme => ({
     textTransform: "uppercase"
   },
   content: {
-    padding: 24
+    padding: 24,
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
 
