@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import backgroundHeaderDesktop from "../../assets/images/background_header_desktop.jpeg";
 import logo from "../../assets/images/logo.png";
 
-const styles = {
+const styles = theme => ({
   root: {
     position: "relative",
     textAlign: "center"
@@ -17,7 +17,7 @@ const styles = {
     backgroundImage: `url(${backgroundHeaderDesktop})`,
     backgroundSize: "cover",
     backgroundBlendMode: "darken",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: theme.palette.application.inactive,
     backgroundPosition: "center",
     display: "flex",
     justifyContent: "center",
@@ -30,7 +30,7 @@ const styles = {
   headerLogoMobile: {
     margin: "24px 24px 0"
   }
-};
+});
 
 const getLogo = classes => <img alt="Site Logo" src={logo} className={cn(classes)} />;
 
@@ -47,4 +47,4 @@ Header.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(styles, { withTheme: true })(Header);

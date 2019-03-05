@@ -8,13 +8,13 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 
-const styles = {
+const styles = theme => ({
   paper: {
-    backgroundColor: "rgba(0, 0, 0, 0.8)"
+    backgroundColor: theme.palette.application.modalBackground
   },
   toolbarRoot: {
-    backgroundColor: "gray",
-    color: "black",
+    backgroundColor: theme.palette.application.primary,
+    color: theme.palette.application.secondary,
     fontSize: "1.5em"
   },
   appBar: {
@@ -27,7 +27,7 @@ const styles = {
   content: {
     padding: 24
   }
-};
+});
 
 const transition = props => <Slide direction="up" {...props} />;
 
@@ -65,4 +65,4 @@ ModalFullScreen.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(styles)(ModalFullScreen);
+export default withStyles(styles, { withTheme: true })(ModalFullScreen);

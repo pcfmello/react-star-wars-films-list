@@ -8,7 +8,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Loading from "../../common/Loading/Loading";
 import ErrorPage from "../../common/Error/Error";
 
-const styles = {
+const styles = theme => ({
   tableRow: {
     display: "flex",
     padding: "12px 24px",
@@ -17,47 +17,47 @@ const styles = {
     alignItems: "center",
     fontSize: "1.5em",
     position: "relative",
-    color: "gray"
+    color: theme.palette.application.primary,
+    cursor: "pointer"
   },
   tableRowHeader: {
-    color: "black",
-    backgroundColor: "gray",
-    borderBottom: "1px solid black"
+    color: theme.palette.application.secondary,
+    backgroundColor: theme.palette.application.primary,
+    borderBottom: `1px solid ${theme.palette.application.secondary}`
   },
-  tableRowHover: {
-    cursor: "pointer",
+  tableRowDesktop: {
     "&:hover": {
-      color: "black",
-      backgroundColor: "gray"
+      color: theme.palette.application.secondary,
+      backgroundColor: theme.palette.application.primary
     },
     "&:active": {
-      backgroundColor: "rgba(128, 128, 128, 0.5)"
+      backgroundColor: theme.palette.application.active
     }
   },
   tableRowMobile: {
-    padding: 8
+    padding: "8px 16px"
   }
-};
+});
 
 const Films = ({ openModal, items, isError, classes }) => {
   const headerRow = () => (
     <Hidden xsDown>
-      <Grid container className={cn(classes.flex, classes.tableRow, classes.tableRowHeader)}>
+      <Grid container className={cn(classes.tableRow, classes.tableRowHeader)}>
         <Grid item sm={8} md={5} lg={4}>
-          <div className={classes.flex}>TITLE</div>
+          <div>TITLE</div>
         </Grid>
         <Hidden mdDown>
           <Grid item lg={2}>
-            <div className={classes.flex}>EPISODE</div>
+            <div>EPISODE</div>
           </Grid>
         </Hidden>
         <Hidden smDown>
           <Grid item md={5} lg={4}>
-            <div className={classes.flex}>DIRECTOR</div>
+            <div>DIRECTOR</div>
           </Grid>
         </Hidden>
         <Grid item sm={3} md={2} lg={2}>
-          <div className={classes.flex}>RELEASE</div>
+          <div>RELEASE</div>
         </Grid>
       </Grid>
     </Hidden>
@@ -69,24 +69,24 @@ const Films = ({ openModal, items, isError, classes }) => {
         <Grid
           container
           key={item.url}
-          className={cn(classes.flex, classes.tableRow, classes.tableRowHover)}
+          className={cn(classes.tableRow, classes.tableRowDesktop)}
           onClick={() => openModal(item)}
         >
           <Grid item sm={8} md={5} lg={4}>
-            <div className={classes.flex}>{item.title}</div>
+            <div>{item.title}</div>
           </Grid>
           <Hidden mdDown>
             <Grid item lg={2}>
-              <div className={classes.flex}>{item.episode_id}</div>
+              <div>{item.episode_id}</div>
             </Grid>
           </Hidden>
           <Hidden smDown>
             <Grid item md={5} lg={4}>
-              <div className={classes.flex}>{item.director}</div>
+              <div>{item.director}</div>
             </Grid>
           </Hidden>
           <Grid item sm={3} md={2} lg={2}>
-            <div className={classes.flex}>{moment(item.release_date).format("L")}</div>
+            <div>{moment(item.release_date).format("L")}</div>
           </Grid>
         </Grid>
       </Hidden>
@@ -94,12 +94,7 @@ const Films = ({ openModal, items, isError, classes }) => {
       <Hidden smUp>
         <div
           key={item.url}
-          className={cn(
-            classes.flex,
-            classes.tableRow,
-            classes.tableRowHover,
-            classes.tableRowMobile
-          )}
+          className={cn(classes.tableRow, classes.tableRowHover, classes.tableRowMobile)}
         >
           <Button variant="contained" size="large" fullWidth onClick={() => openModal(item)}>
             {item.title}
@@ -130,4 +125,4 @@ Films.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Films);
+export default withStyles(styles, { withTheme: true })(Films);

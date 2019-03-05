@@ -8,10 +8,10 @@ const styles = theme => ({
   root: {
     maxWidth: 1366,
     margin: "0 auto",
-    padding: 24
+    padding: "8px"
   },
   films: {
-    border: "1px solid gray",
+    [theme.breakpoints.up("sm")]: { border: `1px solid ${theme.palette.application.primary}` },
     [theme.breakpoints.down("xs")]: { borderRadius: 8 }
   }
 });
@@ -28,4 +28,4 @@ Main.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(styles)(Main);
+export default withStyles(styles, { withTheme: true })(Main);

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Icon } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
-const styles = {
+const styles = theme => ({
   root: {
-    color: "gray",
+    color: theme.palette.application.primary,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -16,7 +16,7 @@ const styles = {
   icon: {
     fontSize: 50
   }
-};
+});
 
 const Error = ({ iconName, message, classes }) => (
   <div className={classes.root}>
@@ -34,4 +34,4 @@ Error.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(styles)(Error);
+export default withStyles(styles, { withTheme: true })(Error);

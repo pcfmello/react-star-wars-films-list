@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withStyles } from "@material-ui/core/styles";
 
-const styles = {
+const styles = theme => ({
   root: {
     height: 300,
     padding: 24,
@@ -13,9 +13,9 @@ const styles = {
     alignItems: "center"
   },
   circularProgress: {
-    color: "gray"
+    color: theme.palette.application.primary
   }
-};
+});
 
 const Loading = ({ classes, ...props }) => (
   <div {...props} className={classes.root}>
@@ -29,4 +29,4 @@ Loading.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Loading);
+export default withStyles(styles, { withTheme: true })(Loading);

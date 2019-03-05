@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   root: {
-    backgroundColor: "black",
+    backgroundColor: theme.palette.application.secondary,
     [theme.breakpoints.up("sm")]: {
       height: "100vh"
     }
@@ -28,4 +28,4 @@ App.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(styles)(App);
+export default withStyles(styles, { withTheme: true })(App);

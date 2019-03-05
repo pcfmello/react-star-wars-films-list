@@ -9,9 +9,9 @@ import Loading from "../../common/Loading/Loading";
 import ErrorPage from "../../common/Error/Error";
 import FilmDetail from "./ModalFilmDetail";
 
-const styles = {
+const styles = theme => ({
   root: {
-    color: "gray"
+    color: theme.palette.application.primary
   },
   loading: {
     position: "absolute",
@@ -21,7 +21,7 @@ const styles = {
     bottom: 0,
     margin: "auto"
   }
-};
+});
 
 const ModalFilmContent = ({ film, classes }) => {
   const [characters, setCharacters] = useState([]);
@@ -131,4 +131,4 @@ ModalFilmContent.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(styles)(ModalFilmContent);
+export default withStyles(styles, { withTheme: true })(ModalFilmContent);
