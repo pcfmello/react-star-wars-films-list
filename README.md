@@ -1,5 +1,5 @@
 # REACT STAR WARS FILMS LIST
-It's a site containing the Star Wars film list and the data of each one as directors, producers, episode numbers, release date and others. It is responsive and have a different presentation for mobile.
+It's a site containing the Star Wars film list and the data of each one as directors, producers, episode numbers, release date and others. It's responsive, the list has sorting by columns, has a modal to presentation the description of each film and has a different presentation for mobile.
 
 It has been developed usinig:
 * ES6+
