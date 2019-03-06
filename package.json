@@ -1,29 +1,25 @@
 {
   "name": "react-star-wars-movie-list",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "A React project. It's a site containing the Star Wars film list and the data of each one as Directors, Producers, Episode numbers, Release date and others.",
+  "author": "Paulo Cesar Ferreira de Mello <pcfmello@gmail.com> (https://www.linkedin.com/in/pcfmello)",
   "dependencies": {
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
-    "react-styleguidist": "^9.0.1",
+    "typeface-roboto": "^0.0.54",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
-    "moment": "^2.24.0",
-    "recompose": "^0.30.0",
-    "gh-pages": "^2.0.1",
-    "typeface-roboto": "^0.0.54"
+    "moment": "^2.24.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
