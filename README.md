@@ -3,11 +3,10 @@ It's a site containing the Star Wars film list and the data of each one as Direc
 
 It has been developed usinig:
 * ES6+
-* React 16.8 using Hooks
-* MomentJS
-* Material-UI
+* React 16.8.3 using Hooks
+* Material-UI 3.9.2
 
-## Running project locally
+## Local Installation and Usage
 Install dependencies:
 
 `$ yarn install`
@@ -16,4 +15,10 @@ Start the server:
 
 `$ yarn start`
 
-Access [localhost:3000](http://localhost:3000) to view.
+Then, access [localhost:3000](http://localhost:3000).
+
+## Project in Prodution
+This project has been deployed in the [Heroku Cloud Platform](https://www.heroku.com).
+
+For to see it running, access [here](https://react-star-wars-films-list.herokuapp.com/)
+
