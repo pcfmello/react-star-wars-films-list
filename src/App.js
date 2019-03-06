@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "typeface-roboto";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -20,6 +21,7 @@ class App extends Component {
       <div className={this.props.classes.root}>
         <Header />
         <Main />
+        <Footer />
       </div>
     );
   }
