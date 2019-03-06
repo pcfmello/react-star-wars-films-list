@@ -25,7 +25,9 @@ const FilmsContainer = () => {
   };
 
   const sortBy = header => {
-    const newList = films.sort((a, b) => a[header].localeCompare(b[header]));
+    const newList = films.sort((a, b) =>
+      a[header].toString().localeCompare(b[header].toString())
+    );
     setFilms(() => [...newList]);
   };
 
