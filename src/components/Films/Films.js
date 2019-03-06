@@ -39,25 +39,25 @@ const styles = theme => ({
   }
 });
 
-const Films = ({ openModal, items, isError, classes }) => {
+const Films = ({ openModal, items, isError, sortBy, classes }) => {
   const headerRow = () => (
     <Hidden xsDown>
       <Grid container className={cn(classes.tableRow, classes.tableRowHeader)}>
         <Grid item sm={8} md={5} lg={4}>
-          <div>TITLE</div>
+          <div onClick={() => sortBy("title")}>TITLE</div>
         </Grid>
         <Hidden mdDown>
           <Grid item lg={2}>
-            <div>EPISODE</div>
+            <div onClick={() => sortBy("episode_id")}>EPISODE</div>
           </Grid>
         </Hidden>
         <Hidden smDown>
           <Grid item md={5} lg={4}>
-            <div>DIRECTOR</div>
+            <div onClick={() => sortBy("director")}>DIRECTOR</div>
           </Grid>
         </Hidden>
         <Grid item sm={3} md={2} lg={2}>
-          <div>RELEASE</div>
+          <div onClick={() => sortBy("release_date")}>RELEASE</div>
         </Grid>
       </Grid>
     </Hidden>
@@ -94,9 +94,18 @@ const Films = ({ openModal, items, isError, classes }) => {
       <Hidden smUp>
         <div
           key={item.url}
-          className={cn(classes.tableRow, classes.tableRowHover, classes.tableRowMobile)}
+          className={cn(
+            classes.tableRow,
+            classes.tableRowHover,
+            classes.tableRowMobile
+          )}
         >
-          <Button variant="contained" size="large" fullWidth onClick={() => openModal(item)}>
+          <Button
+            variant="contained"
+            size="large"
+            fullWidth
+            onClick={() => openModal(item)}
+          >
             {item.title}
           </Button>
         </div>
@@ -109,7 +118,10 @@ const Films = ({ openModal, items, isError, classes }) => {
       <div>{headerRow()}</div>
       <div>
         {isError && (
-          <ErrorPage iconName="error_outline" message="There was an error to loading films list" />
+          <ErrorPage
+            iconName="error_outline"
+            message="There was an error to loading films list"
+          />
         )}
         {(!isError && (items.length && items.map(item => bodyRow(item)))) ||
           (!isError && !items.length && <Loading size={100} />)}
@@ -122,6 +134,7 @@ Films.propTypes = {
   openModal: PropTypes.func.isRequired,
   items: PropTypes.array.isRequired,
   isError: PropTypes.bool.isRequired,
+  sortBy: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired
 };
 

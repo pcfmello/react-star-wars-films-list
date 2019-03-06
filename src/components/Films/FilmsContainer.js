@@ -24,6 +24,11 @@ const FilmsContainer = () => {
     }
   };
 
+  const sortBy = header => {
+    const newList = films.sort((a, b) => a[header].localeCompare(b[header]));
+    setFilms(() => [...newList]);
+  };
+
   const openModal = film => {
     setFilm(film);
     setOpenModal(true);
@@ -35,8 +40,14 @@ const FilmsContainer = () => {
 
   return (
     <div>
-      <Films items={films} {...{ openModal, isError }} />
-      {isOpenModal && <ModalFilm {...{ film }} open={isOpenModal} handleClose={closeModal} />}
+      <Films items={films} {...{ openModal, isError, sortBy }} />
+      {isOpenModal && (
+        <ModalFilm
+          {...{ film, sortBy }}
+          open={isOpenModal}
+          handleClose={closeModal}
+        />
+      )}
     </div>
   );
 };
