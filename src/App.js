@@ -10,10 +10,10 @@ const styles = theme => ({
     backgroundColor: theme.palette.application.secondary,
     [theme.breakpoints.up("sm")]: {
       height: "100%"
-    },
-    [theme.breakpoints.down("xs")]: {
-      height: "100vh"
     }
+    // [theme.breakpoints.down("xs")]: {
+    //   height: "100vh"
+    // }
   }
 });
 class App extends Component {
