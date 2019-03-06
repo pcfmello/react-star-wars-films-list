@@ -18,7 +18,7 @@ Start the server:
 Then, access [localhost:3000](http://localhost:3000).
 
 ## Project in Prodution
-This project has been deployed in the **Heroku Cloud Platform**.
+This project has been deployed in the [Heroku Cloud Platform](https://www.heroku.com).
 
 For to see it running, access [here](https://react-star-wars-films-list.herokuapp.com/)
 
