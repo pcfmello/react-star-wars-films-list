@@ -83,42 +83,75 @@ const ModalFilmContent = ({ film, classes }) => {
             <FilmDetail label="Title" description={film.title} />
           </Grid>
           <Grid item xs={6} md={4}>
-            <FilmDetail label="Episode" description={film.episode_id.toString()} />
+            <FilmDetail
+              label="Episode"
+              description={film.episode_id.toString()}
+            />
           </Grid>
           <Grid item xs={6} md={4}>
             <FilmDetail label="Director" description={film.director} />
           </Grid>
           <Grid item xs={6} md={4}>
-            <FilmDetail label="Producer(s)" description={film.producer} />
+            <FilmDetail label="Producers" description={film.producer} />
           </Grid>
           <Grid item xs={6} md={4}>
-            <FilmDetail label="Release date" description={moment(film.release_date).format("LL")} />
+            <FilmDetail
+              label="Release date"
+              description={moment(film.release_date).format("LL")}
+            />
           </Grid>
           <Grid item xs={6} md={4}>
-            <FilmDetail label="Last edition" description={moment(film.edited).format("LL")} />
+            <FilmDetail
+              label="Last edition"
+              description={moment(film.edited).format("LL")}
+            />
           </Grid>
           <Grid item xs={12}>
-            <FilmDetail label="Synopsis" description={film.opening_crawl} />
-          </Grid>
-
-          <Grid item xs={12}>
-            <FilmDetail label="Characters" description={formattedNamesList(characters)} />
-          </Grid>
-
-          <Grid item xs={12}>
-            <FilmDetail label="Planets" description={formattedNamesList(planets)} />
-          </Grid>
-
-          <Grid item xs={12}>
-            <FilmDetail label="Starships" description={formattedNamesList(starships)} />
+            <FilmDetail
+              label="Synopsis"
+              description={film.opening_crawl}
+              isLongText
+            />
           </Grid>
 
           <Grid item xs={12}>
-            <FilmDetail label="Vehicles" description={formattedNamesList(vehicles)} />
+            <FilmDetail
+              label="Characters"
+              description={formattedNamesList(characters)}
+              isLongText
+            />
           </Grid>
 
           <Grid item xs={12}>
-            <FilmDetail label="Species" description={formattedNamesList(species)} />
+            <FilmDetail
+              label="Planets"
+              description={formattedNamesList(planets)}
+              isLongText
+            />
+          </Grid>
+
+          <Grid item xs={12}>
+            <FilmDetail
+              label="Starships"
+              description={formattedNamesList(starships)}
+              isLongText
+            />
+          </Grid>
+
+          <Grid item xs={12}>
+            <FilmDetail
+              label="Vehicles"
+              description={formattedNamesList(vehicles)}
+              isLongText
+            />
+          </Grid>
+
+          <Grid item xs={12}>
+            <FilmDetail
+              label="Species"
+              description={formattedNamesList(species)}
+              isLongText
+            />
           </Grid>
         </Grid>
       )}

@@ -26,10 +26,7 @@ const styles = theme => ({
   },
   content: {
     padding: 24,
-    height: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    height: "100%"
   }
 });
 
