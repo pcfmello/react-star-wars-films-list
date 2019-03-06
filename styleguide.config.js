@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   components: "src/common/**/*.js",
   template: {
     head: {
