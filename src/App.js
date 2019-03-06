@@ -8,12 +8,10 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.application.secondary,
+    minWidth: 320,
     [theme.breakpoints.up("sm")]: {
       height: "100%"
     }
-    // [theme.breakpoints.down("xs")]: {
-    //   height: "100vh"
-    // }
   }
 });
 class App extends Component {
