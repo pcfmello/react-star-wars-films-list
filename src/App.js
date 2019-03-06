@@ -9,6 +9,9 @@ const styles = theme => ({
   root: {
     backgroundColor: theme.palette.application.secondary,
     [theme.breakpoints.up("sm")]: {
+      height: "100%"
+    },
+    [theme.breakpoints.down("xs")]: {
       height: "100vh"
     }
   }
