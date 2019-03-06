@@ -1,9 +1,12 @@
-module.exports = {
+export default {
   components: "src/common/**/*.js",
   template: {
     head: {
       links: [
-        { rel: "stylesheet", href: "https://fonts.googleapis.com/icon?family=Material+Icons" }
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/icon?family=Material+Icons"
+        }
       ]
     }
   },
